@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html ng-app="kkringle-module">
+  <head>
+    <title>Kris Kringles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="plugins/tb/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="plugins/tb/js/html5shiv.js"></script>
+        <script type="text/javascript" src="plugins/tb/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+
+
+
+  <div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '645410452148351', // App ID
+            channelUrl: '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+            status: true, // check login status
+            cookie: true, // enable cookies to allow the server to access the session
+            xfbml: true  // parse XFBML
+        });
+
+        FB.Event.subscribe('auth.authResponseChange', function (response) {
+
+            if (response.status === 'connected') {
+
+                alert('connected');
+                invites();
+            } else if (response.status === 'not_authorized') {
+
+                FB.login();
+            } else {
+
+                FB.login();
+            }
+        });
+    };
+
+    // Load the SDK asynchronously
+    (function (d) {
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    } (document));
+
+    function invites() {
+        FB.ui({ method: 'apprequests',
+            message: 'yaha hahahaha hhohoo'
+        }, function () {
+           alert('Thank yow!');
+        });
+    }
+</script>
+
+
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Kris Kringles</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Login</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div ng-view></div>
+    
+    <script src="plugins/jq/js/Jquery.js" type="text/javascript"></script>
+    <script src="plugins/tb/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="plugins/aglr/js/Angular.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/controllers.js" type="text/javascript"></script>
+    <script src="js/filters.js" type="text/javascript"></script>
+    <script src="js/services.js" type="text/javascript"></script>
+    <script src="js/directives.js" type="text/javascript"></script>
+    <script src="js/helper.js" type="text/javascript"></script>
+
+  </body>
+</html>
